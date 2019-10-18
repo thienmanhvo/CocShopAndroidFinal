@@ -16,6 +16,7 @@
     <string name="referral_code">Mã giới thiệu</string>
     <string name="renting_history">Lịch sử mua sách</string>
     <string name="read_more">Xem thêm</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
