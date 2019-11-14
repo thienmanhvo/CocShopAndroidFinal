@@ -44,7 +44,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ItemCartHolder
         holder.txtTitle.setText(product.getProductName());
         holder.txtPrice.setText(Integer.toString(product.getPrice()));
         holder.txtQuantity.setText(Integer.toString(product.getQuantity()));
-       // this.notifyDataSetChanged(); Thay doi
+        // this.notifyDataSetChanged(); Thay doi
     }
 
     @Override

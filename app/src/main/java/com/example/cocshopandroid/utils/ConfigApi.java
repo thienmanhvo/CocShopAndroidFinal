@@ -12,5 +12,7 @@ public class ConfigApi {
         String GET_PROFILE = "Auth/Profile";
         String PRODUCT2="Products";
         String SEARCH = "Products";
+        String LOCATION="Locations";
+        String CART = "Order";
     }
 }

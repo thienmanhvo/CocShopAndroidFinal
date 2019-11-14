@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.cocshopandroid.model.Order;
 import com.example.cocshopandroid.model.Product;
 
 import java.util.ArrayList;
@@ -47,6 +48,26 @@ public class CartDAO {
         cursor.close();
         db.close();
         return products;
+    }
+
+    public List<Order> readCart() {
+        List<Order> orders = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + DBManager.CART_TABLE_NAME;
+        SQLiteDatabase db = dbManager.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Order order = new Order();
+                order.setId(cursor.getString(0));
+                order.setQuantity(cursor.getInt(2));
+                order.setPrice(cursor.getInt(3));
+                orders.add(order);
+            }
+            while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return orders;
     }
 
     public void delete(String id) {

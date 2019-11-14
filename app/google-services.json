@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:35615932487:android:7b943ce7e5487b2275b162",
+        "mobilesdk_app_id": "1:35615932487:android:4f32ff49fe83c30675b162",
         "android_client_info": {
           "package_name": "com.example.cocshopandroid"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "35615932487-ie2bh0j52e2mckirh97dlrb3cf91evam.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cocshopandroid",
+            "certificate_hash": "9aa41b5441b852468ffe8b8bb3371cd6a61c971d"
+          }
+        },
         {
           "client_id": "35615932487-jugbjo4e20l22em9joa7v7jk5udp0dei.apps.googleusercontent.com",
           "client_type": 3

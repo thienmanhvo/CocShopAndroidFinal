@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/formLogo"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="-38dp"
         android:layout_marginBottom="10dp">
 
         <LinearLayout
@@ -79,7 +79,6 @@
                 android:textSize="14sp" />
 
             <AutoCompleteTextView
-                android:inputType="textPassword"
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -88,13 +87,14 @@
                 android:drawableLeft="@drawable/password"
                 android:drawablePadding="5dp"
                 android:hint="Mật khẩu"
+                android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:textSize="14sp" />
 
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="110dp"
@@ -110,7 +110,7 @@
 
             <Button
                 android:id="@+id/btnRegister"
-                android:layout_width="match_parent"
+                android:layout_width="151dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="110dp"
@@ -118,8 +118,8 @@
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/register_button"
                 android:fontFamily="sans-serif-black"
-                android:text="Đăng ký"
                 android:onClick="onRegister"
+                android:text="Đăng ký"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="normal" />

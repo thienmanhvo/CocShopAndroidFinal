@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cocshopandroid.dao.CartDAO;
-import com.example.cocshopandroid.dao.DBManager;
 import com.example.cocshopandroid.model.Product;
 import com.example.cocshopandroid.presenter.ProductPresenter;
 import com.example.cocshopandroid.view.ProductView;
@@ -84,8 +83,14 @@ public class ProductDetailActivity extends AppCompatActivity implements ProductV
 
     @Override
     public void getSuccess(Product product) {
+        boolean sale = product.isSale();
+        if (sale) {
+            price1.setText(String.valueOf(product.getPrice()) + " đ");
+            product.setPrice(product.getPriceSale());
+        } else {
+            price1.setText(String.valueOf(product.getPrice()) + " đ");
+        }
         productName1.setText(product.getProductName());
-        price1.setText(String.valueOf(product.getPrice()) + " đ");
         productId1.setText(product.getId());
         quantity1.setText(String.valueOf(product.getQuantity()));
         priceSale1.setText(String.valueOf(product.getPriceSale()));

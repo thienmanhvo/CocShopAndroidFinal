@@ -17,6 +17,8 @@ public class Product implements Serializable {
     private int price;
     @SerializedName("description")
     private String description;
+    @SerializedName("isSale")
+    private boolean sale;
     @SerializedName("isNew")
     private boolean isNew;
     @SerializedName("isBest")
@@ -29,6 +31,12 @@ public class Product implements Serializable {
     public Product() {
     }
 
+    public Product(String id, int quantity, int price) {
+        this.id = id;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
     public Product(String id, String productName, int quantity, int price) {
         this.id = id;
         this.productName = productName;
@@ -36,17 +44,26 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public Product(String id, String productName, int quantity, int priceSale, int price, String description, boolean isNew, boolean isBest, String cateId, String imagePath) {
+    public Product(String id, String productName, int quantity, int priceSale, int price, String description, boolean sale, boolean isNew, boolean isBest, String cateId, String imagePath) {
         this.id = id;
         this.productName = productName;
         this.quantity = quantity;
         this.priceSale = priceSale;
         this.price = price;
         this.description = description;
+        this.sale = sale;
         this.isNew = isNew;
         this.isBest = isBest;
         this.cateId = cateId;
         this.imagePath = imagePath;
+    }
+
+    public boolean isSale() {
+        return sale;
+    }
+
+    public void setSale(boolean sale) {
+        this.sale = sale;
     }
 
     public String getId() {

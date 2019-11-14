@@ -78,4 +78,9 @@ public class DBManager extends SQLiteOpenHelper {
         db.close();
         return list;
     }
+    public void deleteNoti(String tittle) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("noti_table", "notiTitle=?", new String[]{tittle});
+        db.close();
+    }
 }

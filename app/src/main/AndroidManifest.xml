@@ -23,6 +23,7 @@
             android:name=".MyJobService"
             android:enabled="true"
             android:exported="true" />
+        <activity android:name=".ui.cart.ConfirmPaymenActivity"/>
         <activity android:name=".ui.cart.CartActivity" />
         <activity android:name=".ProductDetailActivity" />
         <activity android:name=".RegisterActivity" />

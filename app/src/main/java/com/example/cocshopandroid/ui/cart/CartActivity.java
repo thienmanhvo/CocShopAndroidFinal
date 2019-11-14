@@ -4,22 +4,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cocshopandroid.R;
 import com.example.cocshopandroid.dao.CartDAO;
 import com.example.cocshopandroid.model.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
     CartAdapter cartAdapter;
     String id;
     TextView txtTotal;
+    Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,10 @@ public class CartActivity extends AppCompatActivity {
         RecyclerView recyclerViewCart = findViewById(R.id.listCart);
         recyclerViewCart.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerViewCart.setAdapter(cartAdapter);
+        btn = findViewById(R.id.btnPayment);
+        if (products.size() == 0) {
+            btn.setEnabled(false);
+        }
     }
 
     public void onRemoveItem(View view) {
@@ -66,8 +73,9 @@ public class CartActivity extends AppCompatActivity {
             total = productFor.getPrice() * productFor.getQuantity() + total;
         }
         txtQuantity.setText(Integer.toString(quantity));
-        txtTotal.setText(total+" d");
+        txtTotal.setText(total + " d");
     }
+
     public void onAddingItem(View view) {
         int total = 0;
         ViewGroup viewGroup = (ViewGroup) view.getParent();
@@ -98,9 +106,10 @@ public class CartActivity extends AppCompatActivity {
             total = productFor.getPrice() * productFor.getQuantity() + total;
         }
         txtQuantity.setText(Integer.toString(quantity));
-        txtTotal.setText(total+" d");
+        txtTotal.setText(total + " d");
     }
-    public void onDeleteBook(View view){
+
+    public void onDeleteProduct(View view) {
         ViewGroup viewGroup = (ViewGroup) view.getParent();
         TextView txtTitle = viewGroup.findViewById(R.id.txtTitle);
         String title = txtTitle.getText().toString().trim();
@@ -121,7 +130,16 @@ public class CartActivity extends AppCompatActivity {
         recyclerViewCart.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerViewCart.setAdapter(cartAdapter);
         if (products.size() == 0) {
-            txtTotal.setText(0+" d");
+            txtTotal.setText(0 + " d");
         }
+        if (products.size() == 0) {
+            btn.setEnabled(false);
+        }
+    }
+
+    public void onPayment(View view) {
+        Intent intent = new Intent(this, ConfirmPaymenActivity.class);
+        startActivity(intent);
+
     }
 }
